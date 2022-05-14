@@ -11,7 +11,7 @@ public class Pillar : MonoBehaviour
     public GameObject Braile;
     public GameObject lightPrefab;
     public bool Activated = false;
-    private GameObject light;
+    private GameObject lights;
     private int codigo;
 
     // Start is called before the first frame update
@@ -25,14 +25,14 @@ public class Pillar : MonoBehaviour
     {
         if (Activated == false)
         {
-            light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
-            light.GetComponent<PillarLight>().Caller = gameObject;
+            lights = Instantiate(lightPrefab, transform.position, Quaternion.identity);
+            lights.GetComponent<PillarLight>().Caller = gameObject;
             Activated=true;
             codigo = Braile.GetComponent<Braile>().Insertar(whatAmI);
         }
         else {
-            light.GetComponent<PillarLight>().countDown = 0f;
-            light.GetComponent<Light2D>().intensity = 1f;
+            lights.GetComponent<PillarLight>().countDown = 0f;
+            lights.GetComponent<Light2D>().intensity = 1f;
         }   
     }
 

@@ -115,9 +115,11 @@ GameObject:
   - component: {fileID: 3341506008287776884}
   - component: {fileID: 3341506008287776883}
   - component: {fileID: 3341506008287776886}
+  - component: {fileID: 7569757293880724093}
   - component: {fileID: 3341506008287776887}
   - component: {fileID: 9118982281318265509}
-  - component: {fileID: 7569757293880724093}
+  - component: {fileID: 1824953177}
+  - component: {fileID: 1824953178}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Player
@@ -133,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3341506008287776882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.0167212, y: -1.0685035, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9118982282736827381}
@@ -180,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 2360c56fab6bb9e43b20f6d6ef285f03, type: 3}
+  m_Sprite: {fileID: -77825584035135590, guid: 7fa92a531d19e9048a71db7ed69a30f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -212,40 +214,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3341506008287776887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3341506008287776882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278c61564d00afa418b19b946faf30e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityForce: 5
-  bulletSpeed: 15
-  bulletCD: 0.2
-  crosshair: {fileID: 3341506009494122599}
-  bulletPrefab: {fileID: 1590762882803846046, guid: 452e0f42be5cb754987075137bff6b6b, type: 3}
-  lighta: {fileID: 9118982282736827275}
-  lightaA: {fileID: 0}
---- !u!114 &9118982281318265509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3341506008287776882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c39be05100168f46ab20920b4adc00b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthAmount: 100
-  regenTime: 5
-  regen: 5
 --- !u!58 &7569757293880724093
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +229,77 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.37}
   serializedVersion: 2
-  m_Radius: 0.4837852
+  m_Radius: 0.5
+--- !u!114 &3341506008287776887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341506008287776882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278c61564d00afa418b19b946faf30e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityForce: 7
+  bulletSpeed: 15
+  bulletCD: 0.2
+  crosshair: {fileID: 3341506009494122599}
+  bulletPrefab: {fileID: 1590762882803846046, guid: 452e0f42be5cb754987075137bff6b6b, type: 3}
+  lighta: {fileID: 9118982282736827275}
+  lightaA: {fileID: 0}
+  soundMan: {fileID: 0}
+--- !u!114 &9118982281318265509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341506008287776882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c39be05100168f46ab20920b4adc00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 100
+  regenTime: 5
+  regen: 5
+  vidas: 2
+  soundMan: {fileID: 0}
+  spawn: {fileID: 0}
+  DeathScreen: {fileID: 6653105387887730617, guid: 753419d9c8bd0ad4dbc542dda8c8ba6f, type: 3}
+--- !u!95 &1824953177
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341506008287776882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb46570d54f45be4da2aed24cce5fa9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1824953178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341506008287776882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d03b0ead5567a40b043371ea84b514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3341506009494122599
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3341506009494122599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8103278665265695358}
@@ -370,8 +408,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9118982282736827275}
-  m_LocalRotation: {x: -0, y: -0, z: -0.004841201, w: 0.9999883}
-  m_LocalPosition: {x: 0.031000137, y: -0.23621535, z: 2.8145924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.031000137, y: 0.03, z: 2.8145924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3341506008287776884}
@@ -389,14 +427,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LightType: 3
+  m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.744
-  m_Color: {r: 0.8235294, g: 1, b: 0.95862496, a: 1}
+  m_Color: {r: 0.6084906, g: 1, b: 0.9463253, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
+  m_LightCookieSprite: {fileID: 21300000, guid: bf7cabba5ad2c6d4ab99e7986abc8a97, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
@@ -431,11 +469,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 3341506008287776886}
-  colors: []
+  colors:
+  - {r: 0.5613208, g: 0.96731395, b: 1, a: 1}
+  - {r: 1, g: 0.6179246, b: 0.9430951, a: 1}
+  - {r: 1, g: 1, b: 0.5707547, a: 1}
   colorsDamaged: []
-  lerpTime: 1
+  lerpTime: 4.59
   luzMax: 1
   luzMin: 0
-  Timer: 0.7
+  Timer: 1
   i: 0
   damaged: 0

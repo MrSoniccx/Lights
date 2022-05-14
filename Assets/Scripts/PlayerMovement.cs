@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D playerRb;
     SpriteRenderer playerSR;
-    Animator animator;
-    private string currentState;
+    Animaciones anima;
+    
+    
      private float bulletCurrentCD = 0f;
      private Vector2 moveDirection;
      private Vector2 mousePos;
@@ -26,18 +27,16 @@ public class PlayerMovement : MonoBehaviour
      public Light2D lightaA;
      public SoundMan soundMan;
 
-    //Animation states
-    const string PLAYER_IDLE = "Idle";
-    const string PLAYER_MOVDOWN = "MovDown";
-    const string PLAYER_MOVUP = "MovUp";
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerSR = GetComponent<SpriteRenderer>();
+        anima = GetComponent<Animaciones>();
         lighta = this.transform.Find("Point Light 2D").GetComponent<LightPlayer>();
         lightaA = this.transform.Find("Point Light 2D").GetComponent<Light2D>();
-        animator = GetComponent<Animator>();
+        
         
     }
 
@@ -79,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         playerRb.velocity = new Vector2(moveDirection.x * velocityForce, moveDirection.y * velocityForce);
+        anima.Moving(playerRb.velocity);
 
     }
 
@@ -91,7 +91,11 @@ public class PlayerMovement : MonoBehaviour
     void Aim() {
 
         crosshair.transform.localPosition = mousePos-(new Vector2(1f,1f));
+        float xNew = crosshair.transform.position.x-transform.position.x;
+        float yNew = crosshair.transform.position.y-transform.position.y;
 
+        float angle = Mathf.Atan2(yNew, xNew) * Mathf.Rad2Deg;
+        anima.Angle(angle);
         /*if (moveDirection != Vector2.zero){
         crosshair.transform.localPosition = moveDirection*1.5f;
         }*/
@@ -114,11 +118,5 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void ChangeAnimationState(string newState){
-        if (currentState == newState) return;
-
-        animator.Play(newState);
-
-        currentState = newState;
-    }
+   
 }
