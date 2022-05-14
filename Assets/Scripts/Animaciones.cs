@@ -40,7 +40,6 @@ public class Animaciones : MonoBehaviour
 
     public void Angle(float angl){
         angle = angl;
-        Debug.Log(angle);
     }
 
     void WhereImLookingAt(){

@@ -11,7 +11,7 @@ public class Damage : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if(collision.gameObject.tag == "Player")
         {
-            health.TakeDamage();
+            collision.gameObject.GetComponent<Health>().TakeDamage();
         }
     }
 }
