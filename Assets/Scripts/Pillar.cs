@@ -12,6 +12,7 @@ public class Pillar : MonoBehaviour
     public GameObject lightPrefab;
     public bool Activated = false;
     private GameObject light;
+    private int codigo;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class Pillar : MonoBehaviour
             light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
             light.GetComponent<PillarLight>().Caller = gameObject;
             Activated=true;
-            Braile.GetComponent<Braile>().Insertar(whatAmI);
+            codigo = Braile.GetComponent<Braile>().Insertar(whatAmI);
         }
         else {
             light.GetComponent<PillarLight>().countDown = 0f;
@@ -37,7 +38,7 @@ public class Pillar : MonoBehaviour
 
     public void SeAcabo(){
         Activated = false;
-        Braile.GetComponent<Braile>().Eliminar();
+        Braile.GetComponent<Braile>().Eliminar(codigo);
 
     }
 

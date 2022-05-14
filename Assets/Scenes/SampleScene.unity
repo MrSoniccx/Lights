@@ -654,7 +654,7 @@ MonoBehaviour:
   braile: {fileID: 1784914158}
   queHago: {fileID: 0}
   code:
-  - Number
+  - '#'
   - 1
   - 2
   - 3
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.19
+  m_Intensity: 1.38
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -5692,6 +5692,14 @@ MonoBehaviour:
   - 
   - 
   - 
+  hotbars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hotbarPrefab: {fileID: 5238518948129836696, guid: f78280cf5f32b7147ab2890089c81dac, type: 3}
+  spaceBetween: 100
 --- !u!1 &1824953172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3341506008287776882, guid: 74d387ec8a4a6744ea51553dd515c242, type: 3}
@@ -42544,7 +42552,7 @@ PrefabInstance:
       objectReference: {fileID: 1784914158}
     - target: {fileID: 1704952557421217344, guid: c1c03e447e330654fb7a5018c7ec7a90, type: 3}
       propertyPath: whatAmI
-      value: Number
+      value: '#'
       objectReference: {fileID: 0}
     - target: {fileID: 1704952557421217344, guid: c1c03e447e330654fb7a5018c7ec7a90, type: 3}
       propertyPath: Activated
