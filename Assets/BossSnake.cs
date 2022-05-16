@@ -38,7 +38,8 @@ public class BossSnake : MonoBehaviour
     void FixedUpdate()
     {
         
-        if(timerSpring >= timerIntercalando){Spring();}
+        if(timerSpring >= timerIntercalando){
+            Spring();}
         else{timerSpring += 1*Time.deltaTime;
         MoveTowardsPlayer(1f);
         }
@@ -51,22 +52,22 @@ public class BossSnake : MonoBehaviour
     }
         
     void Spring(){
-        ChangeAnimationState(SNAKE_SPRING);
+        if(boostTimer==0){ChangeAnimationState(SNAKE_SPRING);}
+        
         if(animationHelper=="Realize"){
-        
-        MoveTowardsPlayer(3f);
-        
-        boostTimer += 1*Time.deltaTime;
-        if(boostTimer>=4f){
-            boostTimer=0f;
-            State("EndedSpring");
-        }}
+        MoveTowardsPlayer(4f);
+        }
         if(animationHelper=="EndedSpring"){
-            timerSpring=0f;
-            animationHelper="";
             ChangeAnimationState("Safe");
-            MoveTowardsPlayer(1f);
+            MoveTowardsPlayer(1.8f);
+            boostTimer+=1*Time.deltaTime;
+            if(boostTimer>=2.2){
+                boostTimer=0;
+                timerSpring=0f;
+                animationHelper="";
             }
+            }
+        
     }
 
     public void State(string imIn){
