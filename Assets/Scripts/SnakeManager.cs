@@ -5,8 +5,6 @@ using UnityEngine;
 public class SnakeManager : MonoBehaviour
 {
     [SerializeField] float distanceBetween = .2f;
-    [SerializeField] float speed = 280;
-    [SerializeField] float turnSpeed = 180;
     [SerializeField] List<GameObject> bodyParts = new List<GameObject>();
     List<GameObject> snakeBody = new List<GameObject>();
 
@@ -32,7 +30,7 @@ public class SnakeManager : MonoBehaviour
     
     void SnakeMovement()
     {
-        snakeBody[0].GetComponent<Rigidbody2D>().velocity = snakeBody[0].transform.right*speed*Time.deltaTime;
+        
 
         if(snakeBody.Count>1)
         {
@@ -40,8 +38,8 @@ public class SnakeManager : MonoBehaviour
             {
                 
                 MarkManager markM = snakeBody[i-1].GetComponent<MarkManager>();
-                Debug.Log(markM);
-                snakeBody[i].transform.position = markM.markerList[0].position;
+                Vector3 temp3 = new Vector3(markM.markerList[0].position.x,markM.markerList[0].position.y, (markM.markerList[0].position.z+i*2));
+                snakeBody[i].transform.position = temp3;
                 snakeBody[i].transform.rotation = markM.markerList[0].rotation;
                 markM.markerList.RemoveAt(0);
             }
@@ -52,6 +50,7 @@ public class SnakeManager : MonoBehaviour
 
         if(snakeBody.Count == 0)
         {
+            
         GameObject temp1 = Instantiate(bodyParts[0], transform.position, transform.rotation, transform);
             if (!temp1.GetComponent<MarkManager>())
                 {temp1.AddComponent<MarkManager>();}
@@ -72,7 +71,8 @@ public class SnakeManager : MonoBehaviour
         countUp += Time.deltaTime;
         if(countUp>=distanceBetween)
         {
-            GameObject temp = Instantiate(bodyParts[0], markM.markerList[0].position, markM.markerList[0].rotation, transform);
+            Vector3 temp2 = new Vector3(markM.markerList[0].position.x, markM.markerList[0].position.y, markM.markerList[0].position.z+1*countUp);
+            GameObject temp = Instantiate(bodyParts[0], temp2, markM.markerList[0].rotation, transform);
         if (!temp.GetComponent<MarkManager>())
             {temp.AddComponent<MarkManager>();}
         if (!temp.GetComponent<Rigidbody2D>()){

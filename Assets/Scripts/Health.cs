@@ -13,6 +13,9 @@ public class Health : MonoBehaviour
     public Transform spawn;
     public GameObject DeathScreen;
 
+    public float invul = 0;
+    public float invulTime = 20;
+
     
 
     // Start is called before the first frame update
@@ -32,10 +35,16 @@ public class Health : MonoBehaviour
         else {
             regen += 1 * (Time.deltaTime);
         }
+
+        if (invul <= invulTime){invul += 1 * (Time.deltaTime);}
+
     }
 
-    public void TakeDamage()
+    public void TakeDamage(Vector2 angle)
     {
+        GetComponent<PlayerMovement>().ItookDamage(angle);
+        if(invul >= invulTime)
+        {
         healthAmount -= 99;
         GetComponent<SpriteRenderer>().color = Color.red;
         regen = 0;
@@ -52,6 +61,14 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             Instantiate(DeathScreen, transform.position, Quaternion.identity);}
         }
+        invul=0;
+        }
+
+    }
+
+    public void Push(){
+         
+
 
     }
 }

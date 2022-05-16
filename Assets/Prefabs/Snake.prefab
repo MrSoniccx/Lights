@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2403355563226530851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2403355563226530849}
+  - component: {fileID: 2403355563226530850}
+  m_Layer: 0
+  m_Name: Snake
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2403355563226530849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403355563226530851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.22, y: 46.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2403355563226530850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403355563226530851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147d8a7c23aa88d4c90d107c6ad5ce8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceBetween: 0.1
+  bodyParts:
+  - {fileID: 1338026287169119559, guid: e887af748b0c8e748aa3614cc7b0c21c, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}
+  - {fileID: 3606566052914385305, guid: 5932eb253ae6d62498e7fd2a12d4af40, type: 3}

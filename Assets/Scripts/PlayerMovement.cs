@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
      private float bulletCurrentCD = 0f;
      private Vector2 moveDirection;
      private Vector2 mousePos;
+     private Vector2 angle;
+     private bool stunned=false;
+     private bool knockbackAvaible=true;
+     private float countDown=0f;
+
 
 
 
@@ -21,11 +26,14 @@ public class PlayerMovement : MonoBehaviour
      [SerializeField] private float velocityForce = 8f;
      [SerializeField] private float bulletSpeed = 0f;
      [SerializeField] private float bulletCD = 2f;
+     [SerializeField] private float knockback = 2f;
      public GameObject crosshair;
      public GameObject bulletPrefab;
      public LightPlayer lighta;
      public Light2D lightaA;
      public SoundMan soundMan;
+     public float countDownTimer;
+     
 
 
     // Start is called before the first frame update
@@ -43,7 +51,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(stunned==false){
         ProcessInputs();
+        }else {countDown+= 1*Time.deltaTime;}
+        if(countDown >= countDownTimer){
+            stunned=false;
+            countDown=0;
+        }
+
+
+        if(GetComponent<Health>().invul >= GetComponent<Health>().invulTime){knockbackAvaible=true;}
         bulletCurrentCD += 1f * Time.deltaTime;
         Aim();
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,7 +68,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(stunned==false){
         Move();
+        }else{playerRb.velocity=((-angle)*knockback);Debug.Log(playerRb.velocity);}
         
     }
 
@@ -90,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Aim() {
 
-        crosshair.transform.localPosition = mousePos-(new Vector2(1f,1f));
+        crosshair.transform.localPosition = mousePos;
         float xNew = crosshair.transform.position.x-transform.position.x;
         float yNew = crosshair.transform.position.y-transform.position.y;
 
@@ -116,6 +135,15 @@ public class PlayerMovement : MonoBehaviour
         Destroy(bullet, 3.0f);
 
 
+    }
+
+    public void ItookDamage(Vector2 pos){
+        if(knockbackAvaible == true){
+        stunned=true;
+        countDown=0;
+        angle = pos;
+        knockbackAvaible = false;
+        }
     }
 
    

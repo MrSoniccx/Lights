@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bullet
   - Pillar
+  - SnakeBody
   layers:
   - Default
   - TransparentFX
