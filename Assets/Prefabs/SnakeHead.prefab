@@ -175,7 +175,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  timerIntercalando: 5
+  pointsTP:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  attack: MovingFoward
+  timerBetween: 4
+  boostTimer: 2.2
+  tpRespawn: 1.49
+  transparent: 0.34
 --- !u!95 &3714286762132282606
 Animator:
   serializedVersion: 3

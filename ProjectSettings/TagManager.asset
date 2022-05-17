@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Pillar
   - SnakeBody
+  - TPBoss
   layers:
   - Default
   - TransparentFX
