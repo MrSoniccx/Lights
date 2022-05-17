@@ -9,12 +9,31 @@ public class BossSnake : MonoBehaviour
     SpriteRenderer SnakeSr;
     Transform target;
     Animator animator;
-    private float timerSpring=0f;
-    public float timerIntercalando;
+
+
+    /*---------------------------
+    Variables para Condiciones
+    ---------------------------*/
+    
     private string animationHelper="";
     private string state="";
+    private float healthAmount;
+    private float healthAmountMax;
+    private float healthPercent=100;
 
+    
+    public string attack="MovingFoward";
+
+
+    /*---------------------------
+    Variables para ataques especiales
+    ---------------------------*/
+
+    private float timerSpring=0f;
+    public float timerIntercalando;
     private float boostTimer=0f;
+
+
 
 
     //Animaciones
@@ -23,7 +42,8 @@ public class BossSnake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthAmount = this.GetComponent<HealthEnemy>().GetHealth();
+        healthAmountMax = this.GetComponent<HealthEnemy>().GetHealthMax();
         SnakeRb = GetComponent<Rigidbody2D>();
         SnakeSr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -32,11 +52,65 @@ public class BossSnake : MonoBehaviour
     }
 
     void Update(){
+        healthAmount = this.GetComponent<HealthEnemy>().GetHealth();
+        healthPercent = healthAmount/healthAmountMax;
+        healthPercent = healthPercent*100;
 
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        //-----First Phase-----//
+        if(healthPercent>66 && healthPercent<=100){
+
+            /*-----------------------------
+            Primera fase: Lista de ataques
+            +Spring (Movimiento de resorte = Boost)
+            +MoveFoward
+            +Camuflaje
+
+
+            -----------------------------*/
+
+            // if (Input.GetKey("space")){SnakeSr.color = new Color(1, 1, 1, 0.5f);}
+
+        }
+
+
+         //-----Second Phase-----//
+        if(healthPercent>33 && healthPercent<=66){
+
+            /*-----------------------------
+            Segunda fase: Lista de ataques
+            +Spring natural = MoveFoward natural
+            +Camuflaje
+            +Growl-TP
+            +Supress
+            -----------------------------*/
+
+            
+
+        }
+
+            //-----Second Phase-----//
+         if(healthPercent>=0 && healthPercent<=33){
+
+            /*-----------------------------
+            Segunda fase: Lista de ataques
+            +Spring natural = MoveFoward natural
+            +Camuflaje
+            +Growl-TP
+            +Supress
+            +Inrage (Invulnerability)
+            -Maybe spawn obstacles
+            -----------------------------*/
+
+            
+
+        }
+
+
+
         
         if(timerSpring >= timerIntercalando){
             Spring();}

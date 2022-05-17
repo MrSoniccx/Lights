@@ -26,4 +26,12 @@ public class HealthEnemy : MonoBehaviour
         }
 
     }
+
+    public float GetHealth(){
+        return healthAmount;
+    }
+
+    public float GetHealthMax(){
+        return healthMax;
+    }
 }

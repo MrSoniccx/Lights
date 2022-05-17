@@ -7,6 +7,8 @@ public class Bullets : MonoBehaviour
 
     private Vector2 moveDirection;
     private float moveSpeed;
+    public GameObject lightPrefab;
+
 
     private void OnEnable()
     {
@@ -26,7 +28,7 @@ public class Bullets : MonoBehaviour
 
           
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 newPosition = currentPosition + moveSpeed * Time.deltaTime;
+        Vector2 newPosition = currentPosition * moveSpeed * Time.deltaTime;
 
         Debug.DrawLine(currentPosition, newPosition, Color.red);
 
@@ -37,14 +39,14 @@ public class Bullets : MonoBehaviour
             if( other != this.gameObject){
             //Debug.Log(hit.collider.gameObject);
             GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
-            soundMan.PlaySound("pHit");
-            Destroy(gameObject,0.0f);
+
+            //Destroy(gameObject,0.0f);
             }
 
             if( other.tag == "Player"){
                 Vector2 temp = (transform.position-other.transform.position).normalized;
 
-                other.GetComponent<Health>().TakeDamage(temp);
+                other.GetComponent<Health>().TakeDamage(temp*0.5f);
             }
 
 

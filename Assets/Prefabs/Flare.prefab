@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7624648162331300544}
   - component: {fileID: 5745877089493642263}
-  - component: {fileID: 7179177126721742333}
+  - component: {fileID: 1269957494769155931}
   m_Layer: 0
   m_Name: Flare
   m_TagString: Bullet
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7179177126721742333
+--- !u!114 &1269957494769155931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,13 +93,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1590762882803846046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82bddaa9b4b779a45bf513abc911ee77, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a60f01d240bbf0468edff64c7444e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0}
-  player: {fileID: 3341506007794300710, guid: 74d387ec8a4a6744ea51553dd515c242, type: 3}
   lightPrefab: {fileID: 3568335540472940968, guid: dc795e52acd48f4478cd5697db3c7465, type: 3}
-  DamagePerBullet: 1.5
+  soundMan: {fileID: 0}
 --- !u!1 &4035964602246853031
 GameObject:
   m_ObjectHideFlags: 0

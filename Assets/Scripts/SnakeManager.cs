@@ -41,6 +41,7 @@ public class SnakeManager : MonoBehaviour
                 Vector3 temp3 = new Vector3(markM.markerList[0].position.x,markM.markerList[0].position.y, (markM.markerList[0].position.z+i*2));
                 snakeBody[i].transform.position = temp3;
                 snakeBody[i].transform.rotation = markM.markerList[0].rotation;
+                snakeBody[i].GetComponent<SpriteRenderer>().color = snakeBody[0].GetComponent<SpriteRenderer>().color;
                 markM.markerList.RemoveAt(0);
             }
         }
