@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+
      //Variables publicas
      [SerializeField] private float velocityForce = 8f;
      [SerializeField] private float bulletSpeed = 0f;
@@ -97,7 +98,9 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         playerRb.velocity = new Vector2(moveDirection.x * velocityForce, moveDirection.y * velocityForce);
+
         anima.Moving(playerRb.velocity);
+
 
     }
 
@@ -114,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         float yNew = crosshair.transform.position.y-transform.position.y;
 
         float angle = Mathf.Atan2(yNew, xNew) * Mathf.Rad2Deg;
+
         anima.Angle(angle);
         /*if (moveDirection != Vector2.zero){
         crosshair.transform.localPosition = moveDirection*1.5f;

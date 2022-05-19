@@ -17,7 +17,7 @@ public class Pillar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Braile = GameObject.FindGameObjectWithTag("Braile");
     }
 
 

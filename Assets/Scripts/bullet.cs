@@ -22,9 +22,11 @@ public class bullet : MonoBehaviour
             GameObject other = hit.collider.gameObject;
             if( other != player){
             //Debug.Log(hit.collider.gameObject);
+            if(other.tag !="Triggers"){
             GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
             soundMan.PlaySound("pHit");
             Destroy(gameObject,0.0f);
+            }
             }
 
             if( other.tag == "Enemy"){
