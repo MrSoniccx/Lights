@@ -26778,7 +26778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894750527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00000029802322, z: 12}
+  m_LocalPosition: {x: 0, y: 0.00000023841858, z: 12}
   m_LocalScale: {x: 1.56, y: 1.64, z: 1}
   m_Children: []
   m_Father: {fileID: 1002999674}
@@ -26810,7 +26810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002999673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.000000059604645, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1215671240}
@@ -26967,7 +26967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8887053872509440727, guid: 74d387ec8a4a6744ea51553dd515c242, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.6
+      value: -27.82
       objectReference: {fileID: 0}
     - target: {fileID: 8887053872509440727, guid: 74d387ec8a4a6744ea51553dd515c242, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27037,6 +27037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8887053872952341893, guid: 74d387ec8a4a6744ea51553dd515c242, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8887053872952341893, guid: 74d387ec8a4a6744ea51553dd515c242, type: 3}
       propertyPath: m_Name
       value: Player
@@ -27120,7 +27124,7 @@ MonoBehaviour:
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
-  m_GroupFramingSize: 0.8
+  m_GroupFramingSize: 1
   m_MaxDollyIn: 5000
   m_MaxDollyOut: 5000
   m_MinimumDistance: 1
@@ -27169,7 +27173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506999183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.6, y: 0.8299997, z: -9}
+  m_LocalPosition: {x: -27.82, y: 0.8299996, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1002999674}
@@ -30487,7 +30491,7 @@ GameObject:
   - component: {fileID: 1759753882}
   m_Layer: 0
   m_Name: BulletPool
-  m_TagString: Untagged
+  m_TagString: BulletHell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

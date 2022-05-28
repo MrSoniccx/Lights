@@ -12,6 +12,7 @@ TagManager:
   - TPBoss
   - Braile
   - Triggers
+  - BulletHell
   layers:
   - Default
   - TransparentFX
