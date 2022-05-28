@@ -9,7 +9,7 @@ public class LightPlayer : MonoBehaviour
     public Rigidbody2D playerRb;
     [SerializeField] Color[] colors;
     [SerializeField] Color[] colorsDamaged;
-    [SerializeField] [Range(0f, 10f)]float lerpTime=1f;
+    [SerializeField] [Range(0f, 30f)]float lerpTime=1f;
     private int colorIndex=0;
     private int len;
     private float t =0f;

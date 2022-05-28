@@ -7,6 +7,7 @@ public class HealthEnemy : MonoBehaviour
     // Start is called before the first frame update
     public float healthMax = 100f;
     public float healthAmount = 100f;
+    public bool blocked = false;
     public GameObject healthBarPrefab;
     private GameObject healthBar;
     
@@ -19,10 +20,12 @@ public class HealthEnemy : MonoBehaviour
 
     public void TakeDamage(float Damage)
     {
+        if(blocked==false){
         healthAmount -= Damage;
         if(healthAmount <=0){
             Destroy(gameObject,0.5f);
             Destroy(healthBar.gameObject,0.5f);
+        }
         }
 
     }
