@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1269957494769155931}
   m_Layer: 0
   m_Name: Flare
-  m_TagString: Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightPrefab: {fileID: 3568335540472940968, guid: dc795e52acd48f4478cd5697db3c7465, type: 3}
-  soundMan: {fileID: 0}
 --- !u!1 &4035964602246853031
 GameObject:
   m_ObjectHideFlags: 0

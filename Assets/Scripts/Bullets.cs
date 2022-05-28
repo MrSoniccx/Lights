@@ -25,10 +25,10 @@ public class Bullets : MonoBehaviour
     void Update()
     {
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-
           
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 newPosition = currentPosition * moveSpeed * Time.deltaTime;
+        
 
         Debug.DrawLine(currentPosition, newPosition, Color.red);
 
@@ -50,7 +50,7 @@ public class Bullets : MonoBehaviour
             }
 
 
-        transform.position = newPosition;
+        
      }
     }
 
@@ -58,6 +58,7 @@ public class Bullets : MonoBehaviour
     {
         moveDirection = dir;
     }
+
 
     public void Destroy()
     {

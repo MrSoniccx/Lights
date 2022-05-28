@@ -5,17 +5,19 @@ using UnityEngine;
 public class bulletpool : MonoBehaviour
 {
 
-    public static bulletpool bulletPoolInstance;
+    public static bulletpool bulletPoolInstanse;
 
     [SerializeField]
     private GameObject pooledBullet;
     private bool notEnoughBulletsInPool = true;
 
     private List<GameObject> bullets;
+
     private void Awake()
     {
-        bulletPoolInstance = this;
+        bulletPoolInstanse = this;
     }
+    
     // Start is called before the first frame update
     void Start()
     {

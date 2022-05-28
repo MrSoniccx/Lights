@@ -32,7 +32,7 @@ public class FireBullets : MonoBehaviour
             Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-            GameObject bul = bulletpool.bulletPoolInstance.GetBullet();
+            GameObject bul = bulletpool.bulletPoolInstanse.GetBullet();
             bul.transform.position = transform.position;
             bul.transform.rotation = transform.rotation;
             bul.SetActive(true);
