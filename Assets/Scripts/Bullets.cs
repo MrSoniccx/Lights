@@ -8,6 +8,7 @@ public class Bullets : MonoBehaviour
     private Vector2 moveDirection;
     private float moveSpeed;
     public GameObject lightPrefab;
+    private bool once=false;
 
 
     private void OnEnable()
@@ -25,34 +26,10 @@ public class Bullets : MonoBehaviour
     void Update()
     {
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-          
-        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 newPosition = currentPosition * moveSpeed * Time.deltaTime;
         
-
-        Debug.DrawLine(currentPosition, newPosition, Color.red);
-
-        RaycastHit2D[] hits = Physics2D.LinecastAll(currentPosition, newPosition);
-
-        foreach (RaycastHit2D hit in hits) {
-            GameObject other = hit.collider.gameObject;
-            if( other != this.gameObject){
-            //Debug.Log(hit.collider.gameObject);
-            GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
-
-            //Destroy(gameObject,0.0f);
-            }
-
-            if( other.tag == "Player"){
-                Vector2 temp = (transform.position-other.transform.position).normalized;
-
-                other.GetComponent<Health>().TakeDamage(temp*0.5f);
-            }
-
-
-        
-     }
+     
     }
+    
 
     public void SetMoveDirections(Vector2 dir)
     {
@@ -68,5 +45,14 @@ public class Bullets : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+    }
+
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Vector2 temp = (transform.position-collision.gameObject.transform.position).normalized;
+            collision.gameObject.GetComponent<Health>().TakeDamage(temp);
+        }
     }
 }

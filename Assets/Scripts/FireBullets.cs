@@ -11,8 +11,6 @@ public class FireBullets : MonoBehaviour
     [SerializeField]
     private float startAngle = 90f, endAngle = 270f;
 
-    private Vector2 bulletMoveDirection;
-
     // Start is called before the first frame update
     void Start()
     {

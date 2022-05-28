@@ -24,6 +24,8 @@ public class bullet : MonoBehaviour
             if( other != player && once==false){
             //Debug.Log(hit.collider.gameObject);
             if(other.tag !="Triggers"){
+                Debug.Log(other.tag);
+                if(other.tag =="BulletHell"){return;}
             GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
             soundMan.PlaySound("pHit");
             once=true;
