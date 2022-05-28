@@ -9,6 +9,9 @@ TagManager:
   - Bullet
   - Pillar
   - SnakeBody
+  - TPBoss
+  - Braile
+  - Triggers
   layers:
   - Default
   - TransparentFX

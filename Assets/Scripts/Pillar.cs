@@ -17,7 +17,7 @@ public class Pillar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Braile = GameObject.FindGameObjectWithTag("Braile");
     }
 
 
@@ -31,14 +31,17 @@ public class Pillar : MonoBehaviour
             codigo = Braile.GetComponent<Braile>().Insertar(whatAmI);
         }
         else {
+            if(Braile.GetComponent<Braile>()!=null){
             lights.GetComponent<PillarLight>().countDown = 0f;
             lights.GetComponent<Light2D>().intensity = 1f;
-        }   
+            }
+        }
     }
 
     public void SeAcabo(){
         Activated = false;
-        Braile.GetComponent<Braile>().Eliminar(codigo);
+        if(Braile.GetComponent<Braile>()!=null)
+        {Braile.GetComponent<Braile>().Eliminar(codigo);}
 
     }
 

@@ -21,13 +21,12 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (regen >= regenTime)
+        if (regen >= regenTime && this.GetComponent<PlayerMovement>().charged==true)
         {
             healthAmount = 100;
             GetComponent<SpriteRenderer>().color = Color.white;
@@ -35,6 +34,7 @@ public class Health : MonoBehaviour
         else {
             regen += 1 * (Time.deltaTime);
         }
+        if(regen>=regenTime){regen=regenTime;}
 
         if (invul <= invulTime){invul += 1 * (Time.deltaTime);}
 
@@ -50,14 +50,17 @@ public class Health : MonoBehaviour
         regen = 0;
         if(healthAmount <=0){
             soundMan.PlaySound("pDead");
+            
             if(vidas!=0){
             healthAmount = 100;
             GetComponent<SpriteRenderer>().color = Color.white;
             regen = 100;
             transform.position = spawn.position; 
             vidas--;
+            
             }
             else{
+            vidas--;
             Destroy(gameObject);
             Instantiate(DeathScreen, transform.position, Quaternion.identity);}
         }
@@ -65,6 +68,19 @@ public class Health : MonoBehaviour
         }
 
     }
+
+    public void Dashed()
+    {
+        
+        if(healthAmount >=0){
+            healthAmount -= 99;
+            GetComponent<SpriteRenderer>().color = Color.red;
+            regen = 0;
+        }
+
+        }
+
+    
 
     public void Push(){
          

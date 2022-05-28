@@ -101,4 +101,5 @@ public class Animaciones : MonoBehaviour
 
         currentState = newState;
     }
+
 }

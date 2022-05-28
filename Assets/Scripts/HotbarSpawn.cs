@@ -75,7 +75,6 @@ public class HotbarSpawn : MonoBehaviour
 
     public void Posicion(float offset){
         destino = new Vector3(transform.position.x,transform.position.y-offset,0);
-        Debug.Log(destino);
         hotbarRb = GetComponent<Rigidbody2D>();
         text = this.transform.Find("Text").GetComponent<Text>();
         transform.position = new Vector3(-42f,transform.position.y-offset,0);  

@@ -1,5 +1,132 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &727680201551728494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2762991030319889897}
+  - component: {fileID: 4394990058113856738}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2762991030319889897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727680201551728494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1338026287169119565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4394990058113856738
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727680201551728494}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9d93eb9a5e1f4e34598716a7e544efee, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1338026287169119559
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +143,7 @@ GameObject:
   - component: {fileID: 7406357573529426676}
   - component: {fileID: 797563716462974115}
   - component: {fileID: 3714286762132282606}
+  - component: {fileID: 8040692748359843581}
   m_Layer: 0
   m_Name: SnakeHead
   m_TagString: Enemy
@@ -33,7 +161,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2762991030319889897}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,8 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6da0913d1565dc4ea4c29a61047660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 200
-  healthAmount: 200
+  healthMax: 300
+  healthAmount: 300
+  blocked: 0
   healthBarPrefab: {fileID: 7994216561291556932, guid: 30cbf47f5076bbc408b6fb4d7065f253, type: 3}
 --- !u!61 &4448298229327416325
 BoxCollider2D:
@@ -149,7 +279,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338026287169119559}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -175,7 +305,140 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  timerIntercalando: 5
+  pointsTP:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shock:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8040692748359843581}
+        m_TargetAssemblyTypeName: Cinemachine.CinemachineImpulseSource, Cinemachine
+        m_MethodName: GenerateImpulse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  attack: MovingFoward
+  timerBetween: 4
+  boostTimer: 2.2
+  tpRespawn: 1.49
+  transparent: 0.29
+  phase: 1
+  pointsCircle:
+  - {x: 6.786198e+37, y: 6.17e-43, z: 5.2166636e-11}
+  - {x: 6.917795e+22, y: -1.0746905e+10, z: 6.17e-43}
+  - {x: 4.6e-44, y: 9.314993e-39, z: 6.786198e+37}
+  - {x: 6.17e-43, y: 6.7862144e+37, z: 6.17e-43}
+  - {x: -1.0746937e+10, y: 6.17e-43, z: 6.9e-44}
+  - {x: 0, y: 6.786198e+37, z: 6.17e-43}
+  - {x: 6.7862144e+37, y: 6.17e-43, z: 6.7862306e+37}
+  - {x: 6.17e-43, y: 0, z: 0}
+  - {x: -1.074697e+10, y: 6.17e-43, z: 9.1e-44}
+  - {x: 0, y: 6.786198e+37, z: 6.17e-43}
+  - {x: 6.7862144e+37, y: 6.17e-43, z: 6.7862306e+37}
+  - {x: 6.17e-43, y: 6.786247e+37, z: 6.17e-43}
+  - {x: -1.0747019e+10, y: 6.17e-43, z: 1.36e-43}
+  - {x: 0, y: 6.786198e+37, z: 6.17e-43}
+  - {x: 6.7862144e+37, y: 6.17e-43, z: 6.7862306e+37}
+  - {x: 6.17e-43, y: 6.786247e+37, z: 6.17e-43}
+  - {x: 6.786263e+37, y: 6.17e-43, z: 6.7862793e+37}
+  - {x: 6.17e-43, y: -1.0747068e+10, z: 6.17e-43}
+  - {x: 2.03e-43, y: 0, z: -2.252407e-31}
+  - {x: 6.17e-43, y: -2.2524164e-31, z: 6.17e-43}
+  - {x: -2.2524259e-31, y: 6.17e-43, z: -2.2524353e-31}
+  - {x: 6.17e-43, y: -2.2524447e-31, z: 6.17e-43}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: 6.17e-43, y: -2.2524729e-31, z: 6.17e-43}
+  - {x: -2.2524823e-31, y: 6.17e-43, z: 0}
+  - {x: 0, y: -1.0747134e+10, z: 6.17e-43}
+  - {x: 2.93e-43, y: 0, z: -2.252407e-31}
+  - {x: 6.17e-43, y: -2.2524164e-31, z: 6.17e-43}
+  - {x: -2.2524259e-31, y: 6.17e-43, z: -2.2524353e-31}
+  - {x: 6.17e-43, y: -2.2524447e-31, z: 6.17e-43}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  - {x: -2.252454e-31, y: 6.17e-43, z: -2.2524635e-31}
+  radius: 8
+  phaseAnimation: 0
 --- !u!95 &3714286762132282606
 Animator:
   serializedVersion: 3
@@ -195,3 +458,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8040692748359843581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338026287169119559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 189c1cbf7cbeb64469f30a3b52f26f5e, type: 2}
+    m_AmplitudeGain: 0.61
+    m_FrequencyGain: 0.57
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343

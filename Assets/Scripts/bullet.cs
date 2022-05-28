@@ -8,6 +8,7 @@ public class bullet : MonoBehaviour
     public GameObject player;
     public GameObject lightPrefab;
     public SoundMan soundMan;
+    private bool once=false;
     [SerializeField] private float DamagePerBullet = 20f;
 
     void Update() {
@@ -20,11 +21,14 @@ public class bullet : MonoBehaviour
 
         foreach (RaycastHit2D hit in hits) {
             GameObject other = hit.collider.gameObject;
-            if( other != player){
+            if( other != player && once==false){
             //Debug.Log(hit.collider.gameObject);
+            if(other.tag !="Triggers"){
             GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
             soundMan.PlaySound("pHit");
+            once=true;
             Destroy(gameObject,0.0f);
+            }
             }
 
             if( other.tag == "Enemy"){

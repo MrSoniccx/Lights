@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundMan : MonoBehaviour
 {
 
-    public AudioClip playerDeadSound, playerFireSound, playerHitSound;
+    public AudioClip playerDeadSound, playerFireSound, playerHitSound, playerDashCharged;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -31,6 +31,9 @@ public class SoundMan : MonoBehaviour
             break;
             case "pHit":
                 audioSrc.PlayOneShot(playerHitSound);
+            break;
+            case "DashCharged":
+                audioSrc.PlayOneShot(playerDashCharged);
             break;
         }
     }
