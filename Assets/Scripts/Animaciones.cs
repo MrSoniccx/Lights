@@ -8,8 +8,10 @@ public class Animaciones : MonoBehaviour
     private string currentState;
     float angle;
     bool running=false;
-    bool shooting=false;
+    public bool shooting=false;
     string lookDir;
+    bool blocked = false;
+    //float timer = 1f;
 
 
 
@@ -23,6 +25,14 @@ public class Animaciones : MonoBehaviour
     const string PLAYER_MOVUP = "MovUp";
     const string PLAYER_MOVRIGHT = "MovRight";
     const string PLAYER_MOVLEFT = "MovLeft";
+    const string PLAYER_IDLESHOOTDOWN = "IdleShootingDown";
+    const string PLAYER_IDLESHOOTUP = "IdleShootingUp";
+    const string PLAYER_IDLESHOOTRIGHT = "IdleShootingRight";
+    const string PLAYER_IDLESHOOTLEFT = "IdleShootingLeft";
+    const string PLAYER_MOVSHOOTDOWN = "RunningShootingDown";
+    const string PLAYER_MOVSHOOTUP = "RunningShootingUp";
+    const string PLAYER_MOVSHOOTRIGHT = "RunningShootingRight";
+    const string PLAYER_MOVSHOOTLEFT = "RunningShootingLeft";
 
 
     // Start is called before the first frame update
@@ -37,10 +47,41 @@ public class Animaciones : MonoBehaviour
         WhereImLookingAt();
         ChoosingAnimation();
     }
+    
+    void FixedUpdate()
+    {
+       /* if(timer<=0.3f){
+            Debug.Log(timer);
+            timer+=1f*Time.deltaTime;
+            if(timer>=0.3){
+                shooting=false;
+            }else{shooting=true;}
+        }*/
+        
+    }
+
+    public void AnimationBlocked(string block){
+        if(block == "false"){
+            blocked = false;
+            shooting=false;
+        }else{
+            blocked = true;
+            shooting=true;
+        }
+    }
+
+    public void ShootingOrNot(string block){
+        if(block== "false"){
+            shooting=false;
+        }else{
+            shooting=true;
+        }
+    }
 
     public void Angle(float angl){
         angle = angl;
     }
+
 
     void WhereImLookingAt(){
         if(angle>=45f && angle<=135f){
@@ -79,6 +120,19 @@ public class Animaciones : MonoBehaviour
         else if(lookDir==PLAYER_IDLERIGHT && running==false && shooting==false){
             ChangeAnimationState(PLAYER_IDLERIGHT);}
 
+
+        //Idles Shotting
+        if(lookDir==PLAYER_IDLEUP && running==false && shooting==true){
+            ChangeAnimationState(PLAYER_IDLESHOOTUP);}
+        else if(lookDir==PLAYER_IDLEDOWN && running==false && shooting==true){
+            ChangeAnimationState(PLAYER_IDLESHOOTDOWN);}
+            
+        else if(lookDir==PLAYER_IDLELEFT && running==false && shooting==true){
+            ChangeAnimationState(PLAYER_IDLESHOOTLEFT);}
+
+        else if(lookDir==PLAYER_IDLERIGHT && running==false && shooting==true){
+            ChangeAnimationState(PLAYER_IDLESHOOTRIGHT);}
+
         //Running
         if(lookDir==PLAYER_IDLEUP && running==true && shooting==false){
             ChangeAnimationState(PLAYER_MOVUP);}
@@ -91,15 +145,31 @@ public class Animaciones : MonoBehaviour
 
         else if(lookDir==PLAYER_IDLERIGHT && running==true && shooting==false){
             ChangeAnimationState(PLAYER_MOVRIGHT);}
+
+        //Running Shotting
+        if(lookDir==PLAYER_IDLEUP && running==true && shooting==true){
+            ChangeAnimationState(PLAYER_MOVSHOOTUP);}
+
+        else if(lookDir==PLAYER_IDLEDOWN && running==true && shooting==true){
+            ChangeAnimationState(PLAYER_MOVSHOOTDOWN);}
+            
+        else if(lookDir==PLAYER_IDLELEFT && running==true && shooting==true){
+            ChangeAnimationState(PLAYER_MOVSHOOTLEFT);}
+
+        else if(lookDir==PLAYER_IDLERIGHT && running==true && shooting==true){
+            ChangeAnimationState(PLAYER_MOVSHOOTRIGHT);}
     }
 
 
      void ChangeAnimationState(string newState){
-        if (currentState == newState) return;
+        if (currentState == newState || blocked==true) return;
 
         animator.Play(newState);
 
         currentState = newState;
     }
+
+
+    
 
 }

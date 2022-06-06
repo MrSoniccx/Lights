@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class BossSnake : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class BossSnake : MonoBehaviour
     int children;
     public UnityEvent shock;
     private string[] braile;
+    public SnakeSounds snakeSound;
 
 
     /*---------------------------
@@ -130,7 +132,7 @@ public class BossSnake : MonoBehaviour
                 if(attack==MOVING_FOWARD){
                     ScreamPhase(2);
                 }else{SecondPhase();}
-        }else if(phase==2){
+        }else if(phase==2 || phase==3){
 
             /*-----------------------------
             Segunda fase: Lista de ataques
@@ -469,6 +471,7 @@ public class BossSnake : MonoBehaviour
 
     void ScreamPhase(int i){
         target.GetComponent<PlayerMovement>().blocked = true;
+        
         if(i==1){
             GrowlPlusShake();
             if(phaseAnimation>=2.5f){
@@ -538,6 +541,7 @@ public class BossSnake : MonoBehaviour
                 target.GetComponent<PlayerMovement>().CinematicLogic();
                 target.transform.Find("Focus").gameObject.transform.position = this.transform.position;
                 animationHelper="Holding";
+                snakeSound.PlaySound("growl");
             }if(animationHelper=="Holding"){
                 shock.Invoke();
                 phaseAnimation +=1f*Time.deltaTime;
@@ -557,6 +561,7 @@ public class BossSnake : MonoBehaviour
     {
         //Cambio de escena!
         Destroy(transform.parent.gameObject, 0f);
+        SceneManager.LoadScene("scene2");
     }
 
 

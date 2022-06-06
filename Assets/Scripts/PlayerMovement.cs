@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
      public bool charged=true;
      
      
+     
 
 
 
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
      public SoundMan soundMan;
      public CinemachineTargetGroup CMtarget;
      public float countDownTimer;
+     
      
 
 
@@ -87,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         
         Aim();
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
     }
 
     void FixedUpdate()
@@ -133,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRb.velocity = new Vector2(0f, 0f);
         anima.Moving(playerRb.velocity);
+        
     }
 
 
@@ -156,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Shoot() {
+        anima.shooting = true;
+        
         soundMan.PlaySound("pFire");
         Vector2 shootDirection = mousePos;
         Vector2 lookDir = shootDirection - playerRb.position;
@@ -223,13 +229,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void CinematicLogic(){
         if(blocked==true){
-             CMtarget.RemoveMember(this.transform.Find("Focus").gameObject.transform);
+            
+            CMtarget.RemoveMember(this.transform.Find("Focus").gameObject.transform);            
             blocked=false;
             }
         else{
             CMtarget.AddMember(this.transform.Find("Focus").gameObject.transform, 3f,2f);
+            
             blocked=true;
             }
+    }
+
+    public void Repos(){
+        this.transform.Find("Focus").gameObject.transform.position = this.transform.position;
     }
     
    

@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 6195353676303855548}
   - component: {fileID: 6195353676303855544}
   - component: {fileID: 8985148721392510277}
+  - component: {fileID: 937154058311210791}
   m_Layer: 5
   m_Name: TextoUpsideCanvas
   m_TagString: Untagged
@@ -264,7 +265,7 @@ Canvas:
   m_GameObject: {fileID: 6195353676303855551}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -274,7 +275,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &6195353676303855549
 MonoBehaviour:
@@ -345,6 +346,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 061ce6fef9fd7c24882484f3f4c113a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &937154058311210791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195353676303855551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e322d44f9ebc4ce4d9ab157dfc0776e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6195353677074104694

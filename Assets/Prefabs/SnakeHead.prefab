@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2762991030319889897}
   - component: {fileID: 4394990058113856738}
+  - component: {fileID: 8718238769766264457}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -41,11 +42,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9d93eb9a5e1f4e34598716a7e544efee, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aa7e446be9f2c764097b8125cbe4c7de, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -127,6 +128,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8718238769766264457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727680201551728494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71ae043c4aa232499597bad0d27173d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growl: {fileID: 8300000, guid: 9d93eb9a5e1f4e34598716a7e544efee, type: 3}
 --- !u!1 &1338026287169119559
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +343,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  snakeSound: {fileID: 8718238769766264457}
   attack: MovingFoward
   timerBetween: 4
   boostTimer: 2.2

@@ -5,8 +5,8 @@ using UnityEngine;
 public class CodeFinder : MonoBehaviour
 {
     public GameObject braile;
-    public GameObject queHago;
     [SerializeField] string[] code;
+    public bool Done=false;
     // Start is called before the first frame update
 
 
@@ -17,8 +17,7 @@ public class CodeFinder : MonoBehaviour
         if (Bbraile[0]==code[0] && Bbraile[1]==code[1] && Bbraile[2]==code[2] && Bbraile[3]==code[3])
         {
 
-            Destroy(gameObject,0.0f);
-            //queHago.doMyThing();
+            Done=true;
         }
     }
 
