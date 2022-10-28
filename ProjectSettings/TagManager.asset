@@ -13,6 +13,7 @@ TagManager:
   - Braile
   - Triggers
   - BulletHell
+  - Spike
   layers:
   - Default
   - TransparentFX

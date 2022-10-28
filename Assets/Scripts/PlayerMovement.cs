@@ -10,45 +10,40 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D playerRb;
     SpriteRenderer playerSR;
     Animaciones anima;
-    
-    
-     private float bulletCurrentCD = 0f;
-     private Vector2 moveDirection;
-     private Vector2 mousePos;
-     private Vector2 angle;
-     private bool stunned=false;
-     private bool knockbackAvaible=true;
-     private float countDown=0f;
-     private GameObject dashSave;
-     public  bool blocked=false;
+    private Shooting shootlogic;
+    private Vector2 moveDirection;
+    private Vector2 mousePos;
+    private Vector2 angle;
+    private bool stunned=false;
+    private bool knockbackAvaible=true;
+    private float countDown=0f;
+    private GameObject dashSave;
+    public  bool blocked=false;
      
-     private float dashCurrentSaveTimer;
-     private bool dashing;
-     public bool charged=true;
+    private float dashCurrentSaveTimer;
+    private bool dashing;
+    public bool charged=true;
      
      
-     
-
-
-
-
 
      //Variables publicas
      [SerializeField] private float velocityForce = 8f;
-     [SerializeField] private float bulletSpeed = 0f;
-     [SerializeField] private float bulletCD = 2f;
      [SerializeField] private float knockback = 2f;
      [SerializeField] private float dashDistance = 2f;
      [SerializeField] private float dashVelo = 2f;
      [SerializeField] private float dashSaveTimer = 2f;
      public GameObject crosshair;
-     public GameObject bulletPrefab;
      public GameObject dashPrefab;
      public LightPlayer lighta;
      public Light2D lightaA;
      public SoundMan soundMan;
      public CinemachineTargetGroup CMtarget;
      public float countDownTimer;
+     public List<string> guns = new List<string>();
+
+
+
+     private int gunCurrent = 0;
      
      
 
@@ -56,10 +51,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        guns.Add("pistol");
+        guns.Add("overCharge");
         dashCurrentSaveTimer = dashSaveTimer;
         playerRb = GetComponent<Rigidbody2D>();
         playerSR = GetComponent<SpriteRenderer>();
         anima = GetComponent<Animaciones>();
+        shootlogic = GetComponent<Shooting>();
         lighta = this.transform.Find("Point Light 2D").GetComponent<LightPlayer>();
         lightaA = this.transform.Find("Point Light 2D").GetComponent<Light2D>();
         
@@ -78,15 +76,8 @@ public class PlayerMovement : MonoBehaviour
             countDown=0;
         }
 
-
-        if(bulletCurrentCD <= bulletCD){bulletCurrentCD += 1f * Time.deltaTime;}
-        
         DashingLogic();
-        
-
         if(GetComponent<Health>().invul >= GetComponent<Health>().invulTime){knockbackAvaible=true;}
-        
-        
         Aim();
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -109,19 +100,16 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
 
 
-        if (Input.GetMouseButton(0) && bulletCurrentCD >= bulletCD){
-            Shoot();
-            bulletCurrentCD = 0;
-            
-            lighta.i=lighta.Timer;
-
-            if(lightaA.intensity < lighta.luzMax)
-                {lightaA.intensity += 0.4f;}
-            
+        if (Input.GetMouseButton(0)){
+            Shoot();       
         }
 
          if (Input.GetKeyDown("space")){   
             Dash();  
+        }
+
+        if (Input.GetKeyDown("q")){   
+            ExchangeWeapon();  
         }
         
     }
@@ -160,22 +148,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Shoot() {
-        anima.shooting = true;
-        
-        soundMan.PlaySound("pFire");
-        Vector2 shootDirection = mousePos;
-        Vector2 lookDir = shootDirection - playerRb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg-90f;
-        lookDir.Normalize();
-        shootDirection.Normalize();
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<bullet>().velocity = lookDir * bulletSpeed;
-        bullet.GetComponent<bullet>().player = gameObject;
-        bullet.GetComponent<bullet>().soundMan = soundMan;
-        bullet.transform.Rotate(0, 0, Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg);
-        Destroy(bullet, 3.0f);
-
-
+        shootlogic.Shoot();
     }
 
     public void ItookDamage(Vector2 pos){
@@ -242,6 +215,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Repos(){
         this.transform.Find("Focus").gameObject.transform.position = this.transform.position;
+    }
+
+    public void ExchangeWeapon(){
+        
+        gunCurrent++;
+        if(gunCurrent==guns.Count){gunCurrent=0;}
+        shootlogic.ChangeEquipment(guns[gunCurrent]);
+
     }
     
    

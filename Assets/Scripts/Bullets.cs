@@ -8,7 +8,6 @@ public class Bullets : MonoBehaviour
     private Vector2 moveDirection;
     private float moveSpeed;
     public GameObject lightPrefab;
-    private bool once=false;
 
 
     private void OnEnable()
