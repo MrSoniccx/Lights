@@ -18,7 +18,7 @@ public class Sonidito : MonoBehaviour
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
-        if (hitted==NOTHING){
+        if (hitted==NOTHING || hitted==""){
             audioSrc.PlayOneShot(Nothing);
         }
         if (hitted==SPIKE){

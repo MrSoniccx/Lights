@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INSERTE SU TEXTO
+  m_Text: 
 --- !u!1 &6195353676101168687
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,10 +124,10 @@ AudioSource:
   m_GameObject: {fileID: 6195353676101168687}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7077771732348884760, guid: 636301fdf8df74d48addf937dc9cabb3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a76b883ff030304ba9fe05d4dbcbaa9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.523
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Subtext
+  m_Text: 
 --- !u!1 &6195353677316156729
 GameObject:
   m_ObjectHideFlags: 0

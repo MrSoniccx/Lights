@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2678162981565782763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7193051185235167375}
+  - component: {fileID: 4289463202395732631}
+  - component: {fileID: 2486124202432817509}
+  m_Layer: 0
+  m_Name: FirstDash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7193051185235167375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678162981565782763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -73.51472, y: 28.198336, z: -52.727997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4289463202395732631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678162981565782763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68c8612fa0a0cc45b01bc5b742c6e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogPrefab: {fileID: 3538308015983843977, guid: 69be496cd55ffbc48951a3c3396d8347, type: 3}
+  active: 0
+  blockPlayer: 0
+  onTrigger: 0
+  lines:
+  - I AM AWESOME!
+  - And Jane does it again!
+  - You gotta love this brain right?!
+  - But shus...
+  - It wastes a lot of my energy
+  - I may die if I over use it
+  - Plus It would be irresponsable to go that fast
+  - While I am blind
+  - ...
+  - Hope I can take this thing out soon
+  afterDestroyed: {fileID: 0}
+  afterDestroyedActive: {fileID: 0}
+--- !u!114 &2486124202432817509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678162981565782763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62804583466caac4fb47226742d5e546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextoCanvas: {fileID: 6195353676303855551, guid: cff2a07359127ff4391bc0b98ea2d372, type: 3}
+  text: Press <Space bar> to dash
+  subtext: Aim it with your <Mouse>
+  thisIsGonnaExplode: {fileID: 0}
+  convertInto: {fileID: -2205828199013653899, guid: ab272d4b9c8303f43a0cbb2962f695b5, type: 3}

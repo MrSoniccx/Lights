@@ -12,8 +12,12 @@ TagManager:
   - TPBoss
   - Braile
   - Triggers
-  - BulletHell
   - Spike
+  - UI
+  - Crush
+  - Void
+  - Stop
+  - StopDash
   layers:
   - Default
   - TransparentFX
