@@ -44,23 +44,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68c8612fa0a0cc45b01bc5b742c6e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogPrefab: {fileID: 3538308015983843977, guid: 69be496cd55ffbc48951a3c3396d8347, type: 3}
+  DialogPrefab: {fileID: 8850750301767175987, guid: a6f97ace0be33ac4f915f90711f617f4, type: 3}
+  bigDialog: 1
   active: 0
-  blockPlayer: 0
+  blockPlayer: 1
   onTrigger: 0
-  lines:
+  linesEn:
   - I AM AWESOME!
   - And Jane does it again!
   - You gotta love this brain right?!
   - But shus...
   - It wastes a lot of my energy
-  - I may die if I over use it
-  - Plus It would be irresponsable to go that fast
-  - While I am blind
-  - ...
-  - Hope I can take this thing out soon
+  - I may die if I over use it, plus it would be irresponsable to go that fast while
+    I'm blind
+  - ... Hope I can take this thing out soon
+  linesEs:
+  - "\xA1SOY INCREIBLE!"
+  - "\xA1Y Jane lo hace denuevo!"
+  - "\xA1\xBFDebes de amar este cerebro apoco no?!"
+  - Pero shus...
+  - Me gasta mucha energia
+  - Talvez muera si es que lo sobre uso y tambien seria irresponsable ir tan rapido
+    mientras estoy ciega
+  - ... Espero que pueda quitarme esto rapido
+  moods:
+  - Happy
+  - Nice
+  - 
+  - Hnice
+  - Nicent
+  - 
+  - Stalk
   afterDestroyed: {fileID: 0}
   afterDestroyedActive: {fileID: 0}
+  attachToWhat: {fileID: 0}
 --- !u!114 &2486124202432817509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +95,5 @@ MonoBehaviour:
   subtext: Aim it with your <Mouse>
   thisIsGonnaExplode: {fileID: 0}
   convertInto: {fileID: -2205828199013653899, guid: ab272d4b9c8303f43a0cbb2962f695b5, type: 3}
+  textEs: Presiona <Espacio> para desplazarte
+  subtextEs: Apuntalo con tu <Mouse>

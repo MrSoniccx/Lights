@@ -12,12 +12,20 @@ public class FirstBigShoot : MonoBehaviour
     public SpriteRenderer thisIsGonnaExplode;
     public Sprite convertInto;
 
+    public string textEs;
+    public string subtextEs;
+
     // Start is called before the first frame update
     void Start()
     {
             popping = this.GetComponent<PopText>();
             GameObject Canvas = Instantiate(TextoCanvas, transform.position, Quaternion.identity);
-                Canvas.GetComponent<TextUpsideCanvas>().Declarar(text, subtext);
+                if(PlayerPrefs.GetString("language") == "spanish" || PlayerPrefs.GetString("language") == "" || PlayerPrefs.GetString("language") == null)
+                {
+                    Canvas.GetComponent<TextUpsideCanvas>().Declarar(textEs, subtextEs);
+                }else if(PlayerPrefs.GetString("language") == "english"){
+                    Canvas.GetComponent<TextUpsideCanvas>().Declarar(text, subtext);
+                }
                 player = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<AbleTo>();
 
                 thisIsGonnaExplode =  GameObject.FindGameObjectWithTag("Crush").transform.Find("CrushFire").gameObject.transform.Find("Square0").gameObject.GetComponent<SpriteRenderer>();

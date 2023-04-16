@@ -148,11 +148,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-         if (Input.GetKeyDown("space") && ableTo.dash==true){   
+         if (Input.GetButton("Jump") && ableTo.dash==true){   
             Dash();  
         }
 
-        if (Input.GetKeyDown("q") && ableTo.changeGun==true){
+        if (Input.GetButton("ChangeGun") && ableTo.changeGun==true){
             if(bigCharge==true){
             anima.chargeState+=1;
             shootlogic.Refill();
@@ -162,11 +162,11 @@ public class PlayerMovement : MonoBehaviour
             ExchangeWeapon();  }
             buttonQ.Pressed(true);
 
-        }else if (Input.GetKeyUp("q") && ableTo.changeGun==true){buttonQ.Pressed(false);}
+        }else if (Input.GetButton("ChangeGun") && ableTo.changeGun==true){buttonQ.Pressed(false);}
 
-        if (Input.GetMouseButton(1) && bigChargeCD >= 3f && ableTo.bigCharge==true){
+        if (Input.GetButton("Fire2") && bigChargeCD >= 3f && ableTo.bigCharge==true){
             BigCharge();
-        }else if(bigCharge==true && !Input.GetMouseButton(1)){
+        }else if(bigCharge==true && !Input.GetButton("Fire2")){
             BigChargeRealize();
         }
         else{bigCharging=0f;}
@@ -254,6 +254,7 @@ public class PlayerMovement : MonoBehaviour
         
         soundMan.PlaySound("pFire");
         GameObject bullet = Instantiate(dashPrefab, transform.position, Quaternion.identity);
+        crosshair.GetComponent<CrosshairFollow>().PutDashObject(bullet);
         bullet.GetComponent<Dash>().velocity = dashVelo;
         bullet.GetComponent<Dash>().player = gameObject;
         bullet.GetComponent<Dash>().soundMan = soundMan;

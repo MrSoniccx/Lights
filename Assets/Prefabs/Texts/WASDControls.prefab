@@ -47,3 +47,5 @@ MonoBehaviour:
   text: Use your mouse/arrow keys to aim
   subtext: Move with WASD
   onTrigger: 0
+  textEs: Usa tu mouse/flechas direccionales para apuntar
+  subtextEs: Muevete con WASD

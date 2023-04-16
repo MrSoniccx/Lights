@@ -17,6 +17,7 @@ public class TextAnimationWritting : MonoBehaviour
     public float textSpeed;
     public int index = 0;
     private PlayerMovement pMovBlock;
+    public Q_button qbutton;
     
 
     void Start()
@@ -24,6 +25,7 @@ public class TextAnimationWritting : MonoBehaviour
         if (player == null){
         player = GameObject.FindGameObjectWithTag("Player").gameObject;
         }
+        
 
          //You probably want a more specific type than GameObject
         foreach (var gameObj in FindObjectsOfType(typeof(GameObject)) as GameObject[])
@@ -36,9 +38,10 @@ public class TextAnimationWritting : MonoBehaviour
         
         textComponent.text = string.Empty;
         index = 0;
-        gameObjDialog.transform.position = new Vector3(player.transform.position.x + 3, player.transform.position.y+1,player.transform.position.z);
+        gameObjDialog.transform.position = new Vector3(player.transform.position.x + 3, player.transform.position.y+2,player.transform.position.z);
         pMovBlock=player.GetComponent<PlayerMovement>();
         soundMan=GameObject.FindGameObjectWithTag("Player").gameObject.transform.Find("SoundManager").GetComponent<SoundMan>();
+        soundMan.PlaySound("Dialog");
         if(wantMeToBlock==true){
         pMovBlock.blocked=true;
         }
@@ -47,7 +50,8 @@ public class TextAnimationWritting : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetKeyDown("e")){
+        if (Input.GetButtonDown("Interact")){
+            
             if(textComponent.text == lines[index]){
 
                 if(lines.Count-1 == index){
@@ -55,24 +59,30 @@ public class TextAnimationWritting : MonoBehaviour
                         pMovBlock.blocked=false;
                     }
                 Destroy(padre);
+                
                 Destroy(this.gameObject);
             }else{
+                soundMan.PlaySound("UIaccept");
                 textComponent.text = string.Empty;
                 index++;
                 StartCoroutine(TypeLine());
             }
             }else{
+                soundMan.PlaySound("UIaccept");
                 StopAllCoroutines();
                 textComponent.text = lines[index];
+                
             }
             
+            qbutton.Pressed(true);
+            StartCoroutine(Qbut());
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        gameObjDialog.transform.position = new Vector3(player.transform.position.x + 3, player.transform.position.y+1,player.transform.position.z);
+        gameObjDialog.transform.position = new Vector3(player.transform.position.x + 3, player.transform.position.y+2,player.transform.position.z);
     }
 
     IEnumerator TypeLine(){
@@ -85,6 +95,12 @@ public class TextAnimationWritting : MonoBehaviour
             
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
+            
         }
+    }
+
+    IEnumerator Qbut(){
+        yield return new WaitForSeconds(textSpeed);
+            qbutton.Pressed(false);
     }
 }

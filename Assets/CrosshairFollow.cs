@@ -7,9 +7,12 @@ public class CrosshairFollow : MonoBehaviour
     public bool accesability=false;
     private Vector2 moveDirection2;
     private Vector2 mousePos;
+    private GameObject player;
+    private GameObject dash;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").gameObject;
     }
 
     // Update is called once per frame
@@ -25,9 +28,19 @@ public class CrosshairFollow : MonoBehaviour
             if(moveDirection2check!=new Vector2(0f,0f)){
             moveDirection2 = new Vector2(moveX, moveY).normalized;    
             }
-            this.transform.localPosition = (new Vector2(this.transform.localPosition.x,this.transform.localPosition.y)) + (moveDirection2*5f);
+            if(dash == null){
+                this.transform.localPosition = (new Vector2(player.transform.localPosition.x,player.transform.localPosition.y)) + (moveDirection2*5f);
+            }
+            else{
+                this.transform.localPosition = (new Vector2(dash.transform.localPosition.x,dash.transform.localPosition.y)) + (moveDirection2*5f);
+            }
+            
             
 
         }
+    }
+
+    public void PutDashObject(GameObject x){
+        dash = x;
     }
 }

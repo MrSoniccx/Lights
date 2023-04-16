@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 116371921394853123}
   - component: {fileID: 6117671321364941672}
   - component: {fileID: 2218659098240293}
+  - component: {fileID: 7490171493975998830}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -1166,8 +1167,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 3
-        minScalar: 1
+        scalar: 4
+        minScalar: 2
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -1733,7 +1734,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -5053,6 +5054,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7490171493975998830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393153955639185682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10df2cd0288fe514fb43677d1a2b6091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Prefab: {fileID: 4679837505168267986, guid: 3545ae3f1fdf98d489f0d0693d4bdace, type: 3}
 --- !u!1 &8617708052134012571
 GameObject:
   m_ObjectHideFlags: 0

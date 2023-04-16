@@ -47,6 +47,8 @@ MonoBehaviour:
   TextoCanvas: {fileID: 6195353676303855551, guid: cff2a07359127ff4391bc0b98ea2d372, type: 3}
   text: Press <Left Click> to shoot
   subtext: and Illuminate your way
+  textEs: Presiona <Click izquierdo> para disparar
+  subtextEs: E Ilumina tu camino
 --- !u!114 &7122208315288781252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,18 +61,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68c8612fa0a0cc45b01bc5b742c6e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogPrefab: {fileID: 3538308015983843977, guid: 69be496cd55ffbc48951a3c3396d8347, type: 3}
+  DialogPrefab: {fileID: 8850750301767175987, guid: a6f97ace0be33ac4f915f90711f617f4, type: 3}
+  bigDialog: 1
   active: 0
   blockPlayer: 1
   onTrigger: 0
-  lines:
-  - WOOOAH
-  - What was that!
-  - It felt so warm and electrifying
-  - I'm still shaking
+  linesEn:
+  - WOOOAH, What was that!
+  - It felt so warm and electrifying that I'm still shaking
   - And the sound is bouncing on the walls
-  - ...
-  - I got an Idea...
-  - But after that discharge...
-  - I need to recover a bit of that energy
+  linesEs:
+  - "WOOOOOAH, \xA1Pero qu\xE9 fue eso?"
+  - fue tan calido y electrificante que sigo temblando
+  - Y el sonido rebota sobre las paredes
+  moods:
+  - Nerv
+  - 
+  - Happy
   afterDestroyed: {fileID: 0}
+  afterDestroyedActive: {fileID: 0}
+  attachToWhat: {fileID: 0}

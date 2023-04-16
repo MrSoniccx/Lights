@@ -8,6 +8,7 @@ public class GettingCrush : MonoBehaviour
     public Sprite block;
     public AudioSource soundMan1;
     public AudioSource soundMan2;
+    public GameObject afterDestroyedActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,14 @@ public class GettingCrush : MonoBehaviour
         }
         soundMan2.Play(0);
         yield return new WaitForSeconds(1.5f);
+        Destruido();
         this.gameObject.SetActive(false);
 
+    }
+
+    void Destruido(){
+        if(afterDestroyedActive!=null){
+            afterDestroyedActive.SetActive(true);
+        }
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class SoundMan : MonoBehaviour
 {
 
-    public AudioClip playerDeadSound, playerFireSound, playerHitSound, playerDashCharged, playerFireBC, playerBCharge, playerTexting, playerPushingWall, playerHurt, playerFall, playerFireLowSound;
+    public AudioClip playerDeadSound, playerFireSound, playerHitSound, playerDashCharged, playerFireBC, playerBCharge,
+     playerTexting, playerPushingWall, playerHurt, playerFall, playerFireLowSound, uIpop, dialogPoP, uIcancel, uIaccept;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -55,6 +56,18 @@ public class SoundMan : MonoBehaviour
             break;
             case "pFireLow":
                 audioSrc.PlayOneShot(playerFireLowSound);
+            break;
+            case "UIpop":
+                audioSrc.PlayOneShot(uIpop);
+            break;
+            case "Dialog":
+                audioSrc.PlayOneShot(dialogPoP);
+            break;
+            case "UIcancel":
+                audioSrc.PlayOneShot(uIcancel);
+            break;
+            case "UIaccept":
+                audioSrc.PlayOneShot(uIaccept);
             break;
         }
     }

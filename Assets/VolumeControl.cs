@@ -8,6 +8,7 @@ public class VolumeControl : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
     public string target = "MasterVol";
+    private SoundMan soundMan;
     public List<GameObject> objs = new List<GameObject>();
     public List<Sprite> sprites = new List<Sprite>();
     private float lights, valueIg;
@@ -18,7 +19,8 @@ public class VolumeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioMixer.SetFloat(target, (valuePercen*5f)-80f);
+        soundMan=GameObject.FindGameObjectWithTag("Player").gameObject.transform.Find("SoundManager").GetComponent<SoundMan>();
+        audioMixer.SetFloat(target, (valuePercen*4 + ((valuePercen/4)*3))-80f);
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class VolumeControl : MonoBehaviour
     }
 
     public void Add(){
+        soundMan.PlaySound("UIaccept");
         audioMixer.GetFloat(target, out valueIg);
         if((valueIg+(valuePercen/4f)) <= 20f)
         {audioMixer.SetFloat(target, valueIg+(valuePercen/4f));}
@@ -49,6 +52,7 @@ public class VolumeControl : MonoBehaviour
     }
 
     public void Subtrac(){
+        soundMan.PlaySound("UIcancel");
         audioMixer.GetFloat(target, out valueIg);
         if((valueIg-(valuePercen/4f)) >= -80f)
         {audioMixer.SetFloat(target, valueIg-(valuePercen/4f));}

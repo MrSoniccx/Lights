@@ -12,11 +12,15 @@ public class SnakeCinematic : MonoBehaviour
     public GameObject TextoCanvas;
     public string text;
     public string subtext;
+    public string textEs;
+    public string subtextEs;
+    private GameObject player;
+    public GameObject ActivateAfterDeath;
     // Start is called before the first frame update
     void Start()
     {
         PAUSE = this.GetComponent<PlayableDirector>().state;
-        
+        player = GameObject.FindGameObjectWithTag("Player").gameObject;
     }
 
     // Update is called once per frame
@@ -25,7 +29,14 @@ public class SnakeCinematic : MonoBehaviour
         if(viewed==true){
             if(secondCinematic.state==PAUSE){
                 GameObject Canvas = Instantiate(TextoCanvas, transform.position, Quaternion.identity);
-                Canvas.GetComponent<TextUpsideCanvas>().Declarar(text, subtext);
+                if(PlayerPrefs.GetString("language") == "spanish" || PlayerPrefs.GetString("language") == "" || PlayerPrefs.GetString("language") == null)
+                {
+                    Canvas.GetComponent<TextUpsideCanvas>().Declarar(textEs, subtextEs);
+                }else if(PlayerPrefs.GetString("language") == "english"){
+                    Canvas.GetComponent<TextUpsideCanvas>().Declarar(text, subtext);
+                }
+                player.GetComponent<PlayerMovement>().CinematicLogic();
+                ActivateAfterDeath.SetActive(true);
                 Destroy(gameObject);
                 Destroy(this.gameObject);
             }
@@ -37,6 +48,7 @@ public class SnakeCinematic : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            player.GetComponent<PlayerMovement>().CinematicLogic();
             this.GetComponent<PlayableDirector>().Play();
             
         }

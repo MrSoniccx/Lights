@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
 
     public bool pausa = false;
     public GameObject menu;
+    public GameObject blackfadeout;
+    public Color black;
+    public Color semiBlack;
     public float masterTime;
     // Start is called before the first frame update
     void Start()
@@ -30,13 +34,24 @@ public class Pause : MonoBehaviour
 
     public void SetPause(bool x){
         if(x==false){
-            menu.GetComponent<MenuPause1>().goMain();
-            this.GetComponent<PlayerMovement>().blocked = false;
-            menu.SetActive(false);
+            menu.GetComponent<MenuPause1>().CloseAll();
+            StartCoroutine(LeavingPause());
         }else{
-            this.GetComponent<PlayerMovement>().blocked = true;
             menu.SetActive(true);
+            menu.GetComponent<MenuPause1>().goMain();
+            this.GetComponent<PlayerMovement>().blocked = true;
+            blackfadeout.GetComponent<Image>().color = semiBlack;
+            pausa=x;
         }
-        pausa=x;
+        
+    }
+
+    IEnumerator LeavingPause(){
+        yield return new WaitForSeconds(0.15f);
+        pausa=false;
+        this.GetComponent<PlayerMovement>().blocked = false;
+        blackfadeout.GetComponent<Image>().color = black;
+        menu.SetActive(false);
+        
     }
 }

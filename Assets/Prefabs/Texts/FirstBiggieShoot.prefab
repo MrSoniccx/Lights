@@ -48,11 +48,17 @@ MonoBehaviour:
   active: 0
   blockPlayer: 1
   onTrigger: 0
-  lines:
+  linesEn:
   - HELL YEAH!
   - ...
-  - That room feels different...
+  - That rooms feels different...
+  linesEs:
+  - "\xA1VAAMOOOOOS!"
+  - ...
+  - Este cuarto se siente diferente...
   afterDestroyed: {fileID: 0}
+  afterDestroyedActive: {fileID: 0}
+  attachToWhat: {fileID: 0}
 --- !u!114 &8560311454322429068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,3 +76,5 @@ MonoBehaviour:
   subtext: Aim towards the broken wall
   thisIsGonnaExplode: {fileID: 0}
   convertInto: {fileID: -2205828199013653899, guid: ab272d4b9c8303f43a0cbb2962f695b5, type: 3}
+  textEs: Manten <Click Derecho> para cargar
+  subtextEs: Apunta a la pared agrietada

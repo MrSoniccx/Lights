@@ -6,6 +6,8 @@ using UnityEngine.Audio;
 public class bullet : MonoBehaviour
 {
     public Vector2 velocity = new Vector2(0.0f, 0.0f);
+    public GameObject trailPrefab;
+    public float trailSpeed;
     public GameObject player;
     public GameObject lightPrefab;
     public SoundMan soundMan;
@@ -13,9 +15,9 @@ public class bullet : MonoBehaviour
     private AudioMixer audioMixer;
     private AudioMixerGroup[] audioMixGroup;
     private int times=0;
+    private bool onItTrail = false;
 
     [SerializeField] private float DamagePerBullet = 20f;
-
 
 
 
@@ -47,13 +49,17 @@ public class bullet : MonoBehaviour
     void Update() {
 
         timer_salida+=1f*Time.deltaTime;
-        if(timer_salida>=4.9f){
+        if(timer_salida>=4.9f)
+            {
+                
             GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
             light.transform.Find("Sonidoss").GetComponent<Sonidito>().WhatDoIHit("NOTHING");
             Destroy(this.gameObject, 0f);}
 
-
-            
+            if(onItTrail==false)
+           {
+             StartCoroutine(SpawnTrail());
+           }
 
 
 
@@ -150,4 +156,21 @@ public class bullet : MonoBehaviour
 //        GameObject light = Instantiate(lightPrefab, transform.position, Quaternion.identity);
         
     }
-}
+
+     IEnumerator SpawnTrail(){
+        
+        if(onItTrail == false){
+        onItTrail=true;
+        yield return new WaitForSeconds(trailSpeed);
+        
+        GameObject x = Instantiate(trailPrefab, transform.position, Quaternion.identity);
+        x.GetComponent<Rigidbody2D>().AddForce(new Vector3(velocity.x*10, velocity.y*10, 0));
+        Destroy(x,2f);
+        onItTrail=false;
+        
+        }
+            
+            
+        }
+    }
+

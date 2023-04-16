@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public Transform spawn;
     public GameObject DeathScreen;
     public GameObject healthDisplay;
+    public bool death = false;
 
     public float invul = 0;
     public float invulTime = 20;
@@ -113,10 +114,12 @@ public class Health : MonoBehaviour
     }
 
     IEnumerator Death(){
+        death = true;
         AnimaHealth(0);
         GetComponent<PlayerMovement>().blocked=true;
         soundMan.PlaySound("pDead");
         yield return new WaitForSeconds(1f);
+        death = false;
         healthAmount = 100;
         AnimaHealth(0);
         regen = 100;
