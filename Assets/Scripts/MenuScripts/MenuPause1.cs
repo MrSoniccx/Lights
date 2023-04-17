@@ -53,9 +53,9 @@ public class MenuPause1 : MonoBehaviour
 
     public void goMain(){
         soundMan.PlaySound("UIaccept");
-        StartCoroutine(GoingIn(this.transform.Find("MenuStart").gameObject));
         StartCoroutine(LeavingOut(this.transform.Find("OpcionesSound").gameObject));
         StartCoroutine(LeavingOut(this.transform.Find("Opciones").gameObject));
+        StartCoroutine(GoingIn(this.transform.Find("MenuStart").gameObject));
     }
 
     public void CloseAll(){
@@ -98,8 +98,14 @@ public class MenuPause1 : MonoBehaviour
     IEnumerator GoingIn(GameObject x){
         x.SetActive(true);
         x.GetComponent<Animator>().Play("UiComingOut");
-        yield return new WaitForSeconds(0.1f);
         
+        yield return new WaitForSeconds(0.1f);
+        GetSelectedButtonStart(x);
+        
+    }
+
+    public void GetSelectedButtonStart(GameObject x){
+        x.GetComponent<UISelectbutton>().SelectMain();
     }
     
 }

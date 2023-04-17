@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 public class VolumeControl : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class VolumeControl : MonoBehaviour
     public List<Sprite> sprites = new List<Sprite>();
     private float lights, valueIg;
     private float valuePercen = 100f/6f;
+    private bool onIt=false;
+    public Button primaryButton, secundaryButton;
     
     
     
@@ -29,19 +32,15 @@ public class VolumeControl : MonoBehaviour
         audioMixer.GetFloat(target, out valueIg);
         lights = (valueIg+80f)/valuePercen;
         
-        for(int i=0;i<=6;i++){
+        for(int i=0;i<=5;i++){
             float x = lights-i;
-
             if(x>=1f){objs[i].GetComponent<Image>().sprite = sprites[4];}
             else if(x>=0.74f){objs[i].GetComponent<Image>().sprite = sprites[3];}
             else if(x>=0.49f){objs[i].GetComponent<Image>().sprite = sprites[2];}
             else if(x>=0.24f){objs[i].GetComponent<Image>().sprite = sprites[1];}
-            else if(x>=-0.001f){objs[i].GetComponent<Image>().sprite = sprites[0];}
-            
+            else if(x>=-0.001f){objs[i].GetComponent<Image>().sprite = sprites[0];}            
         }
-        
-
-    }
+   }
 
     public void Add(){
         soundMan.PlaySound("UIaccept");
@@ -57,5 +56,20 @@ public class VolumeControl : MonoBehaviour
         if((valueIg-(valuePercen/4f)) >= -80f)
         {audioMixer.SetFloat(target, valueIg-(valuePercen/4f));}
         else{audioMixer.SetFloat(target, -80f);}
+    }
+
+    public void VolPress(){
+        if(onIt==false){onIt=true;
+        secundaryButton.Select();
+        }else{onIt=false;
+        primaryButton.Select();
+        }
+    }
+
+    public void AddManual(InputAction.CallbackContext context){
+        if (onIt==true && context.performed){Add();}
+    }
+    public void SubtracManual(InputAction.CallbackContext context){
+        if (onIt==true && context.performed){Subtrac();}
     }
 }

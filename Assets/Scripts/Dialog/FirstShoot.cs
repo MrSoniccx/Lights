@@ -34,7 +34,7 @@ public class FirstShoot : MonoBehaviour
 
     void FixedUpdate()
     {
-         if (Input.GetMouseButton(0)){
+         if (Input.GetButton("Fire1")){
                 StartCoroutine(Le_go());
             }
         
