@@ -12860,8 +12860,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 877542016}
   secundaryButton: {fileID: 1593503769}
+  sounds1: {fileID: 248968685}
+  sounds2: {fileID: 617487194}
+  sounds3: {fileID: 735279461}
+  sounds4: {fileID: 459559252}
 --- !u!1 &251685674
 GameObject:
   m_ObjectHideFlags: 0
@@ -17003,8 +17008,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 0}
   secundaryButton: {fileID: 0}
+  sounds1: {fileID: 0}
+  sounds2: {fileID: 0}
+  sounds3: {fileID: 0}
+  sounds4: {fileID: 0}
 --- !u!1001 &445454883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17649,8 +17659,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 1583223506}
   secundaryButton: {fileID: 741925045}
+  sounds1: {fileID: 248968685}
+  sounds2: {fileID: 617487194}
+  sounds3: {fileID: 735279461}
+  sounds4: {fileID: 459559252}
 --- !u!1 &461545396
 GameObject:
   m_ObjectHideFlags: 0
@@ -26386,8 +26401,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 1536662200}
   secundaryButton: {fileID: 39135580}
+  sounds1: {fileID: 248968685}
+  sounds2: {fileID: 617487194}
+  sounds3: {fileID: 735279461}
+  sounds4: {fileID: 459559252}
 --- !u!1 &620758823
 GameObject:
   m_ObjectHideFlags: 0
@@ -33793,8 +33813,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 400447284}
   secundaryButton: {fileID: 112237908}
+  sounds1: {fileID: 248968685}
+  sounds2: {fileID: 617487194}
+  sounds3: {fileID: 735279461}
+  sounds4: {fileID: 459559252}
 --- !u!1 &740637055
 GameObject:
   m_ObjectHideFlags: 0
@@ -35742,8 +35767,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 0}
   secundaryButton: {fileID: 0}
+  sounds1: {fileID: 0}
+  sounds2: {fileID: 0}
+  sounds3: {fileID: 0}
+  sounds4: {fileID: 0}
 --- !u!1 &871264960
 GameObject:
   m_ObjectHideFlags: 0
@@ -36920,8 +36950,13 @@ MonoBehaviour:
   - {fileID: -5949410202500706954, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 5837880083777689165, guid: 0f724da62be247a45859739c30958660, type: 3}
   - {fileID: 3981805169259933809, guid: 0f724da62be247a45859739c30958660, type: 3}
+  onIt: 0
   primaryButton: {fileID: 0}
   secundaryButton: {fileID: 0}
+  sounds1: {fileID: 0}
+  sounds2: {fileID: 0}
+  sounds3: {fileID: 0}
+  sounds4: {fileID: 0}
 --- !u!4 &901390810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2907756077668426019, guid: eb58d2e2c6223844682718dee0bf799d, type: 3}
@@ -61021,6 +61056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedLanguage: 
   languages: []
+  onIt: 0
   primaryButton: {fileID: 966777493}
   secundaryButton: {fileID: 64368685}
 --- !u!1 &1676002501

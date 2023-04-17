@@ -90,6 +90,14 @@ public class MenuPause1 : MonoBehaviour
     IEnumerator LeavingOut(GameObject x){
         if(x.activeSelf){
         x.GetComponent<Animator>().Play("UiLeavingOut");
+        if (x == this.transform.Find("OpcionesSound").gameObject){
+            x.transform.Find("MainVol").gameObject.GetComponent<VolumeControl>().onIt = false;
+            x.transform.Find("SFXVol").gameObject.GetComponent<VolumeControl>().onIt = false;
+            x.transform.Find("MusicVol").gameObject.GetComponent<VolumeControl>().onIt = false;
+            x.transform.Find("VoicesVol").gameObject.GetComponent<VolumeControl>().onIt = false;
+        }else if(x == this.transform.Find("Opciones").gameObject){
+            x.transform.Find("Language").gameObject.GetComponent<LanguageSelector>().onIt = false;
+        }
         yield return new WaitForSeconds(0.1f);
         x.SetActive(false);
         }

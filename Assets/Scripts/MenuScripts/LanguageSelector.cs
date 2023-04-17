@@ -10,7 +10,7 @@ public class LanguageSelector : MonoBehaviour
     public List<string> languages = new List<string>();
     private int index=0;
     private int aux=0;
-    private bool onIt=false;
+    public bool onIt=false;
     public Button primaryButton, secundaryButton;
     // Start is called before the first frame update
     void Start()

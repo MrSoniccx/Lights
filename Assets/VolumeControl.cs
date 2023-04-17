@@ -14,8 +14,10 @@ public class VolumeControl : MonoBehaviour
     public List<Sprite> sprites = new List<Sprite>();
     private float lights, valueIg;
     private float valuePercen = 100f/6f;
-    private bool onIt=false;
+    public bool onIt=false;
     public Button primaryButton, secundaryButton;
+
+    public GameObject sounds1,sounds2,sounds3,sounds4;
     
     
     
@@ -59,7 +61,12 @@ public class VolumeControl : MonoBehaviour
     }
 
     public void VolPress(){
-        if(onIt==false){onIt=true;
+        if(onIt==false){
+        sounds1.GetComponent<VolumeControl>().onIt = false;
+        sounds2.GetComponent<VolumeControl>().onIt = false;
+        sounds3.GetComponent<VolumeControl>().onIt = false;
+        sounds4.GetComponent<VolumeControl>().onIt = false;
+        onIt=true;
         secundaryButton.Select();
         }else{onIt=false;
         primaryButton.Select();
